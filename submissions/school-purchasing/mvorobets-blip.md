@@ -32,8 +32,8 @@
 - Архітектурне правило, крім `check:design` (D): job «Авторизація лише через getClaims()» у `.github/workflows/architecture.yml` (`scripts/check-no-get-session.mjs`); червоний прогін на коміті `mutation:` з `getSession()` — https://github.com/mvorobets-blip/school-purchasing/actions/runs/40314050147, потім revert (PR https://github.com/mvorobets-blip/school-purchasing/pull/18)
 - Акаунти для PM (E): pm-requester@example.test (requester), pm-approver@example.test (approver — схвалювач відділу «Primary School» через членство у відділі; роль у профілі — requester), pm-admin@example.test (admin). Паролі — PM особистим повідомленням
 - Скріни за ролями (E): https://github.com/mvorobets-blip/school-purchasing/blob/c2ef01c5358857eef61fd9f4039c19746e5076f3/docs/img/ws7-role-requester-home.png, https://github.com/mvorobets-blip/school-purchasing/blob/c2ef01c5358857eef61fd9f4039c19746e5076f3/docs/img/ws7-role-requester-approvals-forbidden.png, https://github.com/mvorobets-blip/school-purchasing/blob/c2ef01c5358857eef61fd9f4039c19746e5076f3/docs/img/ws7-role-approver-home.png, https://github.com/mvorobets-blip/school-purchasing/blob/c2ef01c5358857eef61fd9f4039c19746e5076f3/docs/img/ws7-role-approver-settings-forbidden.png, https://github.com/mvorobets-blip/school-purchasing/blob/c2ef01c5358857eef61fd9f4039c19746e5076f3/docs/img/ws7-role-admin-home.png, https://github.com/mvorobets-blip/school-purchasing/blob/c2ef01c5358857eef61fd9f4039c19746e5076f3/docs/img/ws7-role-admin-approvals-forbidden.png
-- AC зрізу 2 (E): AC-FRM-01 … AC-FRM-15 (реалізовано), AC-APR-01 … AC-APR-10 (реалізовано), AC-LANG-01 … AC-LANG-06 і AC-LANG-08 (реалізовано); AC-LANG-07 PM переніс у «Поза межами» — https://github.com/mvorobets-blip/school-purchasing/blob/c2ef01c5358857eef61fd9f4039c19746e5076f3/docs/conformance.md
-- Відхилення від PM (E): не надходило
+- AC зрізу 2 (E): AC-FRM-01 … AC-FRM-15 (реалізовано), AC-APR-01 … AC-APR-10 (реалізовано), AC-LANG-01 … AC-LANG-06 і AC-LANG-08 (реалізовано) — https://github.com/mvorobets-blip/school-purchasing/blob/c2ef01c5358857eef61fd9f4039c19746e5076f3/docs/conformance.md
+- Відхилення від PM (E): не надходило — issues «Відхилення від вимог» у репо немає (дві власні розбіжності з вимогами PM знайдено й виправлено до merge: https://github.com/mvorobets-blip/school-purchasing/pull/23, https://github.com/mvorobets-blip/school-purchasing/pull/24 — див. «Бонус»)
 
 ## Бонус
 
@@ -43,8 +43,8 @@
 PM і звіряв із DESIGN.md. Цикл знайшов те, чого не бачать ні тести, ні `check:design`: форма мовчки не надсилалась
 (`required` у Select без повідомлення), після помилки губились введені рядки, а «Fill in all line fields» стояло під
 формою поза екраном, `outline`-кнопка втратила межу (`buttonVariants` без `cn()`), відмова в доступі була сірим рядком,
-а не нейтральною карткою з DESIGN.md. Незалежна перевірка вимог (агент без мого контексту) додала два мої відхилення
-від PM: формат дати «26 Oct» замість формату першого зрізу (вимога #49 формати не змінює) і власне повідомлення про межі
+а не нейтральною карткою з DESIGN.md. Незалежна перевірка вимог (агент без мого контексту) знайшла дві мої розбіжності з
+вимогами PM ще до merge: формат дати «26 Oct» замість формату першого зрізу (вимога #49 формати не змінює) і власне повідомлення про межі
 чисел (межі — наступний зріз). Пропущено: рамка фокусу логотипа в бічній панелі — типова браузерна, а не `ring-ring`;
 мобільну ширину перевірено очима без знімків.
 
